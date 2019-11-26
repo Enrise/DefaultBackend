@@ -2,9 +2,13 @@
 
 Enrise styled default backend container for Nginx ingress controllers in Kubernetes clusters.
 
+![Example](example.jpg)
+
 # Details
 
-This container is built to follow the [Nginx default backend specs](https://kubernetes.github.io/ingress-nginx/user-guide/default-backend/) which means / serves a HTTP 404 Not Found and /healtz serves a HTTP 200 OK.
+This container is built to follow the [Nginx default backend specs](https://kubernetes.github.io/ingress-nginx/user-guide/default-backend/) which means:
+* / serves a HTTP 404 Not Found response
+* /healtz serves a HTTP 200 OK response
 
 # Usage
 
