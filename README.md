@@ -17,8 +17,10 @@ Using this default backend can be done by setting the following values for the N
 ```yaml
 defaultBackend:
   image:
-      repository: enrise/default-backend
-      tag: latest
+    repository: enrise/default-backend
+    tag: latest
+    runAsUser: 0
+  port: 80
 ```
 
 # Building & modifying
