@@ -16,12 +16,19 @@ Using this default backend can be done by setting the following values for the N
 
 ```yaml
 defaultBackend:
+  enabled: true
+  name: enrise-default-backend
+  port: 8000
   image:
-    repository: enrise/default-backend
+    registry: docker.io
+    image: enrise/default-backend
     tag: latest
-    runAsUser: 0
-  port: 80
+    pullPolicy: Always
+    runAsUser: 100
+    readOnlyRootFilesystem: false
 ```
+
+This config is tested with version 4.9.0 of the ingress-nginx Helm chart.
 
 # Building & modifying
 
@@ -29,10 +36,12 @@ Feel free to modify anything inside the html directory as you see fit. Afterward
 
 ```shell script
 $ docker build -t enrise/default-backend:dev .
-$ docker run --rm -ti -p 8000:80 enrise/default-backend:dev
+$ docker run --rm -ti -p 8000:8000 enrise/default-backend:dev
 ```
-or to debug / see what's in the container:
+and you can now check http://localhost:8000.
+
+Or to debug / see what's in the container:
 
 ```shell script
-$ docker run --rm -ti -p 8000:80 enrise/default-backend:dev sh
+$ docker run --rm -ti -p 8000:8000 enrise/default-backend:dev sh
 ```
